@@ -1,0 +1,46 @@
+{
+  "dependencies": {
+    "axios": "^1.5.0",
+    "bcrypt": "^5.1.1",
+    "config": "^3.3.9",
+    "cors": "^2.8.5",
+    "csv": "^6.3.3",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-jwt": "^8.4.1",
+    "fs": "^0.0.1-security",
+    "helmet": "^7.0.0",
+    "joi": "^17.9.2",
+    "jsonwebtoken": "^9.0.2",
+    "loadash": "^1.0.0",
+    "mongoose": "^7.4.3",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "path": "^0.12.7",
+    "superagent": "^8.1.2",
+    "to-arraybuffer": "^1.0.1",
+    "underscore": "^1.13.6",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "name": "bunkr-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bunkr-finance/bunkr-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bunkr-finance/bunkr-api/issues"
+  },
+  "homepage": "https://github.com/bunkr-finance/bunkr-api#readme",
+  "description": ""
+}
