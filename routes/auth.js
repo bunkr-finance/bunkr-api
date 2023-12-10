@@ -15,7 +15,7 @@ auth_r.post("/createAccount", async(req, res)=>{
         email
     })
     let response;
-
+    
     switch(user_Check){
         case null:
             break
@@ -73,13 +73,16 @@ auth_r.post("/signin", async (req, res)=>{
         response = {
             message:"Incorrect Password",
             success:false,
-            data:{}
+            data:{},
+            token:""
         }
         res.statusCode = 401;
         return res.send(response);
     }
+    const t_data = {"_id":u_check["_id"].toString() }
+    
     token = create_token(
-        {"_id":u_check["_id"].toString }
+        t_data
     )
     response = {
         message:"",
@@ -92,5 +95,39 @@ auth_r.post("/signin", async (req, res)=>{
     res.statusCode = 200
     return  res.send(response)
 });
+
+auth_r.post("/verifyOTP", async(req, res)=>{
+    const {email, otp} = req.body;
+    const u_check = await User.findOne({
+        email
+    })
+    let response
+    if (u_check !== null){
+        await User.updateOne({
+            email
+        }, 
+        {
+            verified:true
+        })
+
+        response = {
+            message: "Account created, OTP sent for verification",
+            data:{},
+            success:true
+        }
+        res.statusCode = 200
+        return res.send(response);
+
+    }else{
+        res.statusCode = 404;
+        response = {
+            data:{},
+            message:"User not found",
+            success:false
+        }
+        return res.send(response);
+    }
+})
+
 
 module.exports = auth_r;

@@ -25,6 +25,10 @@ const userSchema = new Schema({
     verified:{
         type:Boolean,
         default:false
+    },
+    bvn_verified:{
+        type:Boolean,
+        default:false
     }
 
 });
@@ -49,10 +53,15 @@ const bvnSchema = new Schema({
         type:String,
         required:true
     },
-    name:{
+    user_name:{
         type:String,
         required:true
-    }
+    },
+    phoneNo:{
+        type:String,
+        required:true
+    },
+
 });
 
 const User = model("users", userSchema);
