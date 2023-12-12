@@ -1,4 +1,5 @@
 const {Schema, Types, model} = require("mongoose");
+const mongoose = require("mongoose")
 
 
 const userSchema = new Schema({
@@ -37,14 +38,14 @@ const accountSchema = new Schema({
     bankName:String,
     bankCode:String,
     accountNumber:String,
-    balance: Types.Decimal128
+    
 });
 
 const userAccountSchema = new Schema({
     _id: {
         type:Types.ObjectId
     },
-    accounts: [accountSchema]
+    accounts: Array
 });
 
 
@@ -64,13 +65,46 @@ const bvnSchema = new Schema({
 
 });
 
+// this schema is for dummy banks
+const BankSchema =  new Schema({
+    bankName:{
+        type:String,
+        unique:true
+    },
+    bankCode:{
+        type:String,
+        unique:true
+    },
+    accNo:{
+        type:String,
+        unique:true
+    },
+    accName: {
+        type:String
+    },
+    balance:{
+        type:Number,
+        default:0.0
+    },
+    img_url:{
+        type:String,
+        unique:true
+    },
+    bvn:{
+        type:String
+    }
+})
+
+
 const User = model("users", userSchema);
 const usersAccounts =  model("userAccounts", userAccountSchema);
 const Bvns = model("testBVNs", bvnSchema);
+const Banks = model("testBanks", BankSchema)
 
 
 module.exports = {
     User,
     usersAccounts,
-    Bvns
+    Bvns,
+    Banks
 }

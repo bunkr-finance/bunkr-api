@@ -8,7 +8,7 @@ Everysingle thing would be dummies
 2. Onboarding
     a. create dummy bvns to onboard users
     b. link accounts created linked to bvns
-    c. fetch banks with bvns
+    c. fetch bank accounts linked with bvn provided
 3. Dashboard
 
 4. Accounts

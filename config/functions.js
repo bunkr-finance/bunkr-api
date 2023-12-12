@@ -13,7 +13,7 @@ function validateToken(req, res, next){
         res.statusCode = 403
         return res.send({"message":"Token Required", "success":false})
     }
-    console.log(token)
+    
     jwt.verify(token, secret_key, (err, user)=>{
             if (err){
                 if (err.name ==="TokenExpiredError"){
@@ -34,7 +34,7 @@ function validateToken(req, res, next){
                 return res.send(err);
             }else{
                 req.user = user
-                console.log(req.user);
+                
 
             }
         });
